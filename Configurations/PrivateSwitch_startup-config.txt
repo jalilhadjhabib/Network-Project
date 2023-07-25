@@ -1,0 +1,290 @@
+! 
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname PrivateSwitch
+!
+!
+!
+!
+!
+!
+!
+ip routing
+!
+!
+!
+!
+username admin secret 5 $1$mERr$GbpJzpzIDj5Z9M0guq9qN1
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip ssh time-out 60
+ip domain-name vergis.network
+!
+!
+spanning-tree mode pvst
+spanning-tree vlan 1-160 priority 0
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0/3
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0/4
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0/5
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0/10
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0/11
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ mac-address 000c.cf17.2601
+ ip address 192.168.5.35 255.255.255.224
+ ip helper-address 192.168.5.184
+ standby 11 ip 192.168.5.34
+ standby 11 priority 110
+ standby 11 preempt
+!
+interface Vlan20
+ mac-address 000c.cf17.2602
+ ip address 192.168.4.99 255.255.255.224
+ ip helper-address 192.168.5.184
+ standby 21 ip 192.168.4.98
+ standby 21 priority 110
+ standby 21 preempt
+!
+interface Vlan30
+ mac-address 000c.cf17.2603
+ ip address 192.168.4.227 255.255.255.224
+ ip helper-address 192.168.5.184
+ standby 31 ip 192.168.4.226
+ standby 31 priority 110
+ standby 31 preempt
+!
+interface Vlan40
+ mac-address 000c.cf17.2604
+ ip address 192.168.4.131 255.255.255.192
+ ip helper-address 192.168.5.184
+ standby 41 ip 192.168.4.130
+ standby 41 priority 110
+ standby 41 preempt
+!
+interface Vlan50
+ mac-address 000c.cf17.2605
+ ip address 192.168.3.3 255.255.255.0
+ ip helper-address 192.168.5.184
+ standby 51 ip 192.168.3.2
+ standby 51 priority 110
+ standby 51 preempt
+!
+interface Vlan60
+ mac-address 000c.cf17.2606
+ ip address 192.168.5.3 255.255.255.224
+ ip helper-address 192.168.5.184
+ standby 61 ip 192.168.5.2
+ standby 61 priority 110
+ standby 61 preempt
+!
+interface Vlan70
+ mac-address 000c.cf17.2607
+ ip address 192.168.5.67 255.255.255.224
+ ip helper-address 192.168.5.184
+ standby 71 ip 192.168.5.66
+ standby 71 priority 110
+ standby 71 preempt
+!
+interface Vlan80
+ mac-address 000c.cf17.2608
+ ip address 192.168.5.99 255.255.255.224
+ ip helper-address 192.168.5.184
+ standby 81 ip 192.168.5.98
+ standby 81 priority 110
+ standby 81 preempt
+!
+interface Vlan90
+ mac-address 000c.cf17.2609
+ ip address 192.168.4.195 255.255.255.224
+ ip helper-address 192.168.5.184
+ standby 91 ip 192.168.4.194
+ standby 91 priority 110
+ standby 91 preempt
+!
+interface Vlan100
+ mac-address 000c.cf17.260a
+ ip address 192.168.5.131 255.255.255.224
+ ip helper-address 192.168.5.184
+ standby 101 ip 192.168.5.130
+ standby 101 priority 110
+ standby 101 preempt
+!
+interface Vlan110
+ mac-address 000c.cf17.260b
+ ip address 192.168.4.3 255.255.255.192
+ ip helper-address 192.168.5.184
+ standby 111 ip 192.168.4.2
+ standby 111 priority 110
+ standby 111 preempt
+!
+interface Vlan120
+ mac-address 000c.cf17.260c
+ ip address 192.168.4.67 255.255.255.224
+ ip helper-address 192.168.5.184
+ standby 121 ip 192.168.4.66
+ standby 121 priority 110
+ standby 121 preempt
+!
+interface Vlan130
+ mac-address 000c.cf17.260d
+ ip address 192.168.2.5 255.255.255.0
+ ip helper-address 192.168.5.184
+ standby 131 ip 192.168.2.4
+ standby 131 priority 110
+ standby 131 preempt
+!
+interface Vlan140
+ mac-address 000c.cf17.260e
+ ip address 192.168.0.3 255.255.254.0
+ ip helper-address 192.168.5.184
+ standby 141 ip 192.168.0.2
+ standby 141 priority 110
+ standby 141 preempt
+!
+interface Vlan150
+ mac-address 000c.cf17.260f
+ ip address 192.168.5.163 255.255.255.240
+ ip helper-address 192.168.5.184
+ standby 151 ip 192.168.5.162
+ standby 151 priority 110
+ standby 151 preempt
+!
+interface Vlan160
+ mac-address 000c.cf17.2610
+ ip address 192.168.5.179 255.255.255.240
+ ip helper-address 192.168.5.184
+ standby 161 ip 192.168.5.178
+ standby 161 priority 110
+ standby 161 preempt
+!
+router eigrp 200
+ auto-summary
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd Acces reserve aux personnes autorisees
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ password ciscotelnet
+ login local
+ transport input ssh
+line vty 5 15
+ password ciscotelnet
+ login local
+ transport input ssh
+!
+!
+!
+end
+

@@ -1,0 +1,196 @@
+! 
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname MainRouter
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Serial8/0
+ ip address 100.100.100.6 255.255.255.252
+ ip nat outside
+!
+interface GigabitEthernet9/0
+ no ip address
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet9/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.5.38 255.255.255.224
+ standby 10 ip 192.168.5.33
+ standby 10 priority 110
+ standby 10 preempt
+!
+interface GigabitEthernet9/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.4.102 255.255.255.224
+ standby 20 ip 192.168.4.97
+ standby 20 priority 110
+ standby 20 preempt
+!
+interface GigabitEthernet9/0.30
+ encapsulation dot1Q 30
+ ip address 192.168.4.230 255.255.255.224
+ standby 30 ip 192.168.4.225
+ standby 30 priority 110
+ standby 30 preempt
+!
+interface GigabitEthernet9/0.40
+ encapsulation dot1Q 40
+ ip address 192.168.4.134 255.255.255.192
+ standby 40 ip 192.168.4.129
+ standby 40 priority 110
+ standby 40 preempt
+!
+interface GigabitEthernet9/0.50
+ encapsulation dot1Q 50
+ ip address 192.168.3.6 255.255.255.0
+ standby 50 ip 192.168.3.1
+ standby 50 priority 110
+ standby 50 preempt
+!
+interface GigabitEthernet9/0.60
+ encapsulation dot1Q 60
+ ip address 192.168.5.6 255.255.255.224
+ standby 60 ip 192.168.5.1
+ standby 60 priority 110
+ standby 60 preempt
+!
+interface GigabitEthernet9/0.70
+ encapsulation dot1Q 70
+ ip address 192.168.5.70 255.255.255.224
+ standby 70 ip 192.168.5.65
+ standby 70 priority 110
+ standby 70 preempt
+!
+interface GigabitEthernet9/0.80
+ encapsulation dot1Q 80
+ ip address 192.168.5.102 255.255.255.224
+ standby 80 ip 192.168.5.97
+ standby 80 priority 110
+ standby 80 preempt
+!
+interface GigabitEthernet9/0.90
+ encapsulation dot1Q 90
+ ip address 192.168.4.198 255.255.255.224
+ standby 90 ip 192.168.4.193
+ standby 90 priority 110
+ standby 90 preempt
+!
+interface GigabitEthernet9/0.100
+ encapsulation dot1Q 100
+ ip address 192.168.5.134 255.255.255.224
+ standby 100 ip 192.168.5.129
+ standby 100 priority 110
+ standby 100 preempt
+!
+interface GigabitEthernet9/0.110
+ encapsulation dot1Q 110
+ ip address 192.168.4.6 255.255.255.192
+ standby 110 ip 192.168.4.1
+ standby 110 priority 110
+ standby 110 preempt
+!
+interface GigabitEthernet9/0.120
+ encapsulation dot1Q 120
+ ip address 192.168.4.70 255.255.255.224
+ standby 120 ip 192.168.4.65
+ standby 120 priority 110
+ standby 120 preempt
+!
+interface GigabitEthernet9/0.130
+ encapsulation dot1Q 130
+ ip address 192.168.2.3 255.255.255.0
+ standby 130 ip 192.168.2.1
+ standby 130 priority 110
+ standby 130 preempt
+!
+interface GigabitEthernet9/0.140
+ encapsulation dot1Q 140
+ ip address 192.168.0.6 255.255.254.0
+ standby 140 ip 192.168.0.1
+ standby 140 priority 110
+ standby 140 preempt
+!
+interface GigabitEthernet9/0.150
+ encapsulation dot1Q 150
+ ip address 192.168.5.166 255.255.255.240
+ standby 150 ip 192.168.5.161
+ standby 150 priority 110
+ standby 150 preempt
+!
+interface GigabitEthernet9/0.160
+ encapsulation dot1Q 160
+ ip address 192.168.5.182 255.255.255.240
+ standby 160 ip 192.168.5.177
+ standby 160 priority 110
+ standby 160 preempt
+!
+router eigrp 100
+ network 100.100.100.4 0.0.0.3
+ no auto-summary
+!
+router eigrp 200
+ redistribute static 
+ network 100.100.100.8 0.0.0.3
+ auto-summary
+!
+ip nat pool POOL2 100.100.100.6 100.100.100.6 netmask 255.255.255.248
+ip nat inside source list 11 pool POOL2 overload
+ip nat inside source list PAT interface Serial8/0 overload
+ip classless
+ip route 0.0.0.0 0.0.0.0 100.100.100.5 
+!
+ip flow-export version 9
+!
+!
+ip access-list standard PAT
+ permit 192.168.0.0 0.0.255.255
+access-list 11 permit 192.168.0.0 0.0.255.255
+!
+no cdp run
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
