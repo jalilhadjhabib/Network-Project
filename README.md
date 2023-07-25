@@ -32,3 +32,8 @@ This repository includes:
 - Final project report.
 
 This project was an exciting challenge that not only tested my technical skills but also allowed me to develop my teamwork, project management, and presentation skills. I hope this work will be helpful for anyone looking to understand how to approach a network project in a professional context.
+![image](https://github.com/jalilhadjhabib/Network-Project/assets/101253359/ed90fb97-fa4e-40b5-9271-4c1d5d81a815)
+![image](https://github.com/jalilhadjhabib/Network-Project/assets/101253359/76ba2d89-3887-496e-b049-6dba392f6e87)
+![image](https://github.com/jalilhadjhabib/Network-Project/assets/101253359/784f5971-4c9c-4639-a3ab-ae7b503a4012)
+
+
